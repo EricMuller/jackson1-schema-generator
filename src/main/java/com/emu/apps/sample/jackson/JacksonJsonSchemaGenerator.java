@@ -95,7 +95,6 @@ public class JacksonJsonSchemaGenerator {
         updateReferenceSchema(mapper, schema);
         OutputStream os = null;
         try {
-            ;
             File resourcesFile = new File("src/main/resources/json-schema/" + fileName);
             os = new FileOutputStream(resourcesFile);
             os.write(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(schema).getBytes());
