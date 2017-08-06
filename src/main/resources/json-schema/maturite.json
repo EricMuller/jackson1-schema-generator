@@ -1,0 +1,17 @@
+{
+  "type" : "object",
+  "properties" : {
+    "maturite" : {
+      "type" : "integer"
+    },
+    "maturite_reel" : {
+      "type" : "number"
+    },
+    "investment_grade" : {
+      "type" : "number"
+    },
+    "ecart_lambda_lineaire_ajuste" : {
+      "type" : "number"
+    }
+  }
+}

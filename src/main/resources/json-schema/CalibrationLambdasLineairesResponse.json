@@ -1,0 +1,17 @@
+{
+  "type" : "object",
+  "properties" : {
+    "code" : {
+      "type" : "integer"
+    },
+    "message" : {
+      "type" : "string"
+    },
+    "lambda_lineaire_ajustes" : {
+      "type" : "array",
+      "items" : {
+        "type" : "number"
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "type" : "object",
+  "properties" : {
+    "maturites" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "maturite.json"
+      }
+    },
+    "date_valo" : {
+      "type" : "string",
+      "format" : "date-time"
+    },
+    "courbe_taux" : {
+      "type" : "array",
+      "items" : {
+        "type" : "number"
+      }
+    },
+    "prime_specifique_titre" : {
+      "type" : "number"
+    },
+    "cds_5y" : {
+      "type" : "number"
+    },
+    "recovery_stec" : {
+      "type" : "number"
+    },
+    "echeancier_titre" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "echeancier.json"
+      }
+    },
+    "spread_implicite" : {
+      "type" : "number"
+    },
+    "va_cible" : {
+      "type" : "number"
+    },
+    "calcul_prime_specifique_titre" : {
+      "type" : "boolean"
+    }
+  }
+}
