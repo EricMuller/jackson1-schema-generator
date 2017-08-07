@@ -4,7 +4,7 @@
     "maturites" : {
       "type" : "array",
       "items" : {
-        "$ref" : "maturite.json"
+        "$ref" : "MaturiteJson.json"
       }
     },
     "date_valo" : {
@@ -29,7 +29,7 @@
     "echeancier_titre" : {
       "type" : "array",
       "items" : {
-        "$ref" : "echeancier.json"
+        "$ref" : "EcheanceTitreJson.json"
       }
     },
     "spread_implicite" : {

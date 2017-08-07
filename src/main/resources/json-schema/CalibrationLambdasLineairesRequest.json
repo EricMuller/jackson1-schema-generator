@@ -4,7 +4,7 @@
     "maturites" : {
       "type" : "array",
       "items" : {
-        "$ref" : "maturite.json"
+        "$ref" : "MaturiteJson.json"
       }
     },
     "date_valo" : {

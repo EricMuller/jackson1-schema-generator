@@ -17,6 +17,10 @@ import java.io.OutputStream;
 
 public class JacksonJsonSchemaGenerator {
 
+    private static Class[] CLASSES= {MaturiteJson.class,EcheanceTitreJson.class,CalibrationLambdasLineairesRequest.class
+            ,CalibrationLambdasLineairesResponse.class,CalibrationPrimeSpecifiqueTitreRequest.class,CalibrationPrimeSpecifiqueTitreResponse.class};
+
+
     /**
      * @param args
      * @throws IOException
@@ -36,23 +40,10 @@ public class JacksonJsonSchemaGenerator {
         mapper.disable(SerializationConfig.Feature.WRITE_DATES_AS_TIMESTAMPS);
         mapper.setSerializationInclusion(JsonSerialize.Inclusion.ALWAYS);
 
-        JsonSchema schema = mapper.generateJsonSchema(MaturiteJson.class);
-        writeSchemaToFile(mapper, schema, "maturite.json");
-
-        schema = mapper.generateJsonSchema(EcheanceTitreJson.class);
-        writeSchemaToFile(mapper, schema, "echeancier.json");
-
-        schema = mapper.generateJsonSchema(CalibrationLambdasLineairesRequest.class);
-        writeSchemaToFile(mapper, schema, "CalibrationLambdasLineairesRequest.json");
-
-        schema = mapper.generateJsonSchema(CalibrationLambdasLineairesResponse.class);
-        writeSchemaToFile(mapper, schema, "CalibrationLambdasLineairesResponse.json");
-
-        schema = mapper.generateJsonSchema(CalibrationPrimeSpecifiqueTitreRequest.class);
-        writeSchemaToFile(mapper, schema, "CalibrationPrimeSpecifiqueTitreRequest.json");
-
-        schema = mapper.generateJsonSchema(CalibrationPrimeSpecifiqueTitreResponse.class);
-        writeSchemaToFile(mapper, schema, "CalibrationPrimeSpecifiqueTitreResponse.json");
+        for(Class aClass : CLASSES){
+            JsonSchema schema = mapper.generateJsonSchema(aClass);
+            writeSchemaToFile(mapper, schema, aClass.getSimpleName()+".json");
+        }
 
 
     }
@@ -68,14 +59,14 @@ public class JacksonJsonSchemaGenerator {
         JsonNode jsonNode = schemaRootNode.findPath("maturites");
         if (jsonNode != null && jsonNode.isObject()) {
             ObjectNode jNode = mapper.createObjectNode();
-            jNode.put("$ref", "maturite.json");
+            jNode.put("$ref", "MaturiteJson.json");
             ((ObjectNode) jsonNode).put("items", jNode);
         }
 
         jsonNode = schemaRootNode.findPath("echeancier_titre");
         if (jsonNode != null && jsonNode.isObject()) {
             ObjectNode jNode = mapper.createObjectNode();
-            jNode.put("$ref", "echeancier.json");
+            jNode.put("$ref", "EcheanceTitreJson.json");
             ((ObjectNode) jsonNode).put("items", jNode);
         }
 
